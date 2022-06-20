@@ -1,15 +1,17 @@
 import React from "react";
 import "./sidebar.scss";
 import logo from "../../assets/logo.jpeg";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import StoreIcon from "@mui/icons-material/Store";
-import { ChatOutlined } from "@mui/icons-material";
-import { AdminPanelSettings } from "@mui/icons-material";
-import SettingsIcon from "@mui/icons-material/Settings";
-import { LogoutOutlined } from "@mui/icons-material";
-import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
-import ReceiptIcon from '@mui/icons-material/Receipt';
+import {
+	ChatOutlined,
+	ShoppingCartOutlined,
+	Dashboard,
+	PersonOutline,
+	Store,
+	AdminPanelSettings,
+	LogoutOutlined,
+	Settings,
+	ManageAccountsOutlined,
+} from "@mui/icons-material";
 
 export const Sidebar = () => {
 	return (
@@ -22,20 +24,20 @@ export const Sidebar = () => {
 				<ul>
 					<p className="title">MAIN</p>
 					<li>
-						<DashboardIcon className="icon" />
+						<Dashboard className="icon" />
 						<span>Dashboard</span>
 					</li>
 					<p className="title">FUNCTIONS</p>
 					<li>
-						<PersonOutlineIcon className="icon" />
+						<PersonOutline className="icon" />
 						<span>Users</span>
 					</li>
 					<li>
-						<StoreIcon className="icon" />
+						<Store className="icon" />
 						<span>Services</span>
 					</li>
 					<li>
-						<ReceiptIcon className="icon" />
+						<ShoppingCartOutlined className="icon" />
 						<span>Orders</span>
 					</li>
 					<li>
@@ -47,12 +49,12 @@ export const Sidebar = () => {
 						<span>New Admin</span>
 					</li>
 					<li>
-						<SettingsIcon className="icon" />
+						<Settings className="icon" />
 						<span>Settings</span>
 					</li>
 					<p className="title">USER</p>
 					<li>
-						<ManageAccountsOutlinedIcon className="icon" />
+						<ManageAccountsOutlined className="icon" />
 						<span>Profile</span>
 					</li>
 					<li>

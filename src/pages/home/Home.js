@@ -11,10 +11,10 @@ export const Home = () => {
 			<div className="homeContainer">
 				<Navbar />
 				<div className="widgets">
-					<Widgets />
-					<Widgets />
-					<Widgets />
-					<Widgets />
+					<Widgets type="users" />
+					<Widgets type="orders"/>
+					<Widgets type="services"/>
+					{/* <Widgets /> */}
 				</div>
 			</div>
 		</div>
