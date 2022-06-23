@@ -1,0 +1,31 @@
+.homeTransactions {
+	flex: 2;
+	box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+	padding: 20px;
+
+	.title {
+		font-size: 22px;
+		font-weight: 600;
+	}
+
+	.table {
+    .cell{
+			align-items: center;
+			justify-content: center;
+
+			.cellWrapper {
+				display: flex;
+				align-items: center;
+				
+				img {
+					width: 32px;
+					height: 32px;
+					border-radius: 50%;
+					-o-object-fit: cover;
+					object-fit: cover;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}

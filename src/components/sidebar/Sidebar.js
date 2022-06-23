@@ -46,7 +46,7 @@ export const Sidebar = () => {
 					</li>
 					<li>
 						<AdminPanelSettings className="icon" />
-						<span>New Admin</span>
+						<span>Admins</span>
 					</li>
 					<li>
 						<Settings className="icon" />

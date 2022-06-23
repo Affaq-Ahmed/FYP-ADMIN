@@ -1,0 +1,21 @@
+.users {
+	display: flex;
+	width: 100%;
+
+	.usersContainer {
+		flex: 6;
+		text-align: center;
+
+		.top {
+			box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+			margin: 10px;
+			padding: 20px;
+			display: flex;
+			h1 {
+				font-size: 20px;
+				font-weight: bold;
+				color: lightgray;
+			}
+		}
+	}
+}

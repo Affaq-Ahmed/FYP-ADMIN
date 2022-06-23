@@ -1,0 +1,65 @@
+.dataTable {
+	height: 577.7px;
+	padding: 20px;
+
+	.cellWithImg {
+		display: flex;
+		align-items: center;
+
+		.cellImg {
+			width: 32px;
+			height: 32px;
+			margin-right: 20px;
+			border-radius: 50%;
+			-o-object-fit: cover;
+			object-fit: cover;
+		}
+	}
+	.cellWithStatus {
+		padding: 5px;
+		border-radius: 5px;
+
+		&.active {
+			background-color: rgba(0, 128, 0, 0.05);
+			color: green;
+		}
+		&.pending {
+			background-color: rgba(255, 217, 0, 0.05);
+			color: goldenrod;
+		}
+		&.passive {
+			background-color: rgba(255, 0, 0, 0.05);
+			color: crimson;
+		}
+	}
+  
+	.cellWithAction {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .view{
+      padding: 2px 5px;
+      border-radius: 5px;
+      color: darkblue;
+      border: 1px solid rgba(0, 0, 139, 0.418);
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(0, 0, 139, 0.1);
+      }
+    }
+
+    .approve{
+      padding: 2px 5px;
+      border-radius: 5px;
+      color: green;
+      border: 1px solid rgba(0, 128, 0, 0.433);
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(0, 128, 0, 0.1);
+      }
+    }
+	}
+}
