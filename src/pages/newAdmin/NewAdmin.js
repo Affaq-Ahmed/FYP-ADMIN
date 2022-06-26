@@ -10,6 +10,8 @@ import {
 	uploadBytesResumable,
 	getDownloadURL,
 } from "firebase/storage";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const NewAdmin = () => {
 	const [file, setFile] = useState("");
@@ -23,10 +25,11 @@ export const NewAdmin = () => {
 	const address = useRef();
 	const dateOfBirth = useRef();
 	const CNIC = useRef();
-  const [percent, setPercent] = useState(0);
-  const [imageURL, setImageURL] = useState("");
+	const [percent, setPercent] = useState(0);
+	const [imageURL, setImageURL] = useState("");
 
 	const storage = getStorage();
+	const navigate = useNavigate();
 
 	const signUp = async (email, password) => {
 		try {
@@ -50,7 +53,7 @@ export const NewAdmin = () => {
 		const storageRef = ref(storage, `userDps/${email.current.value}.jpg`);
 		const uploadTask = uploadBytesResumable(storageRef, file);
 
-    uploadTask.on(
+		uploadTask.on(
 			"state_changed",
 			(snapshot) => {
 				const percent = Math.round(
@@ -59,24 +62,52 @@ export const NewAdmin = () => {
 
 				// update progress
 				setPercent(percent);
+        console.log(percent);
 			},
 			(err) => console.log(err),
 			() => {
 				// download url
 				getDownloadURL(uploadTask.snapshot.ref).then((url) => {
 					console.log(url);
-          setImageURL(url);
+					setImageURL(url);
 				});
 			}
 		);
+	};
+
+	const createAdmin = async () => {
+		const admin = {
+			firstName: firstName.current.value,
+			lastName: lastName.current.value,
+			email: email.current.value,
+			username: username.current.value,
+			password: password.current.value,
+			confirmPassword: confirmPassword.current.value,
+			phone: phone.current.value,
+			address: address.current.value,
+			dateOfBirth: dateOfBirth.current.value,
+			CNIC: CNIC.current.value,
+			imageURL: imageURL,
+		};
+		console.log(admin);
+		try {
+			const result = await axios.post(
+				"https://tap-n-hire.herokuapp.com/api/admin/",
+				admin
+			);
+			console.log(result);
+		} catch (err) {
+			console.log(err.message);
+		}
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const result = signUp(email.current.value, password.current.value);
 		console.log(result);
-    handleUpload();
-    
+		handleUpload();
+		createAdmin();
+		navigate(-1);
 	};
 
 	return (

@@ -1,22 +1,42 @@
 import React from "react";
 import "./dataTable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatableSource";
+import { userColumns } from "../../datatableSource";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-export const DataTable = ({data}) => {
+export const DataTable = ({ data }) => {
+	const approveUser = async (id) => {
+		try {
+			const result = await axios.put(
+				`https://tap-n-hire.herokuapp.com/api/admin/approveUser`,
+				{
+					uid: id,
+				}
+			);
+			console.log(result);
+			window.location.reload();
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
+
 	const actionColumn = [
 		{
 			field: "action",
 			headerName: "Action",
 			width: 200,
-			renderCell: () => {
+			renderCell: (params) => {
 				return (
 					<div className="cellWithAction">
-						<Link to="/users/1" style={{ textDecoration: "none" }}>
+						<Link to={`${params.row.id}`} style={{ textDecoration: "none" }}>
 							<div className="view">View</div>
 						</Link>
-						<div className="approve">Approve</div>
+						{params.row.profileStatus === "2" ? (
+							<div className="approve" onClick={approveUser(params.row.id)}>
+								Approve
+							</div>
+						) : null}
 					</div>
 				);
 			},
@@ -26,7 +46,7 @@ export const DataTable = ({data}) => {
 	return (
 		<div className="dataTable">
 			<DataGrid
-				rows={userRows}
+				rows={data}
 				columns={userColumns.concat(actionColumn)}
 				pageSize={9}
 				rowsPerPageOptions={[9]}
