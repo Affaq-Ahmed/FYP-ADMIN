@@ -4,7 +4,7 @@ import { Sidebar } from "../../components/sidebar/Sidebar";
 import "./newCategory.scss";
 import { DriveFolderUploadOutlined } from "@mui/icons-material";
 
-export const NewAdmin = () => {
+export const NewCategory = () => {
 	const [file, setFile] = useState("");
 
 	return (

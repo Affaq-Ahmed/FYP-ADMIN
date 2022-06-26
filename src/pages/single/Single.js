@@ -4,6 +4,7 @@ import { Sidebar } from "../../components/sidebar/Sidebar";
 import "./single.scss";
 import avatar from "../../assets/avatar.JPG";
 import { HomeTransactions } from "../../components/homeTransactions/HomeTransactions";
+import { Link } from "react-router-dom";
 
 export const Single = () => {
 	return (
@@ -13,7 +14,9 @@ export const Single = () => {
 				<Navbar />
 				<div className="top">
 					<div className="left">
-						<button className="detailsBtn">Details</button>
+						<Link to={`/users/1/displayUser`} className="detailsBtn">
+							Details
+						</Link>
 						<h1 className="title">Information</h1>
 						<div className="item">
 							<img src={avatar} alt="" className="itemImg" />

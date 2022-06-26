@@ -4,18 +4,30 @@ import {
 	ShoppingCartOutlined,
 	Store,
 } from "@mui/icons-material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./widgets.scss";
+import { Link } from "react-router-dom";
 
-export const Widgets = ({ type }) => {
+export const Widgets = ({ type, newCount, count }) => {
 	let data;
+	const [counts, setCounts] = useState(count);
+	const [newCounts, setNewCounts] = useState(newCount);
+
+	useEffect(() => {
+		setCounts(count);
+		setNewCounts(newCount);
+	}, [count, newCount]);
 
 	switch (type) {
 		case "users":
 			data = {
 				title: "Users",
 				isMoney: false,
-				link: "See all users",
+				link: (
+					<Link to="/users" style={{ textDecoration: "none", color: "gray" }}>
+						See all users
+					</Link>
+				),
 				icon: (
 					<PersonOutline
 						className="icon"
@@ -28,7 +40,11 @@ export const Widgets = ({ type }) => {
 			data = {
 				title: "Orders",
 				isMoney: false,
-				link: "See all orders",
+				link: (
+					<Link to="/orders" style={{ textDecoration: "none", color: "gray" }}>
+						See all orders
+					</Link>
+				),
 				icon: (
 					<ShoppingCartOutlined
 						className="icon"
@@ -44,8 +60,23 @@ export const Widgets = ({ type }) => {
 			data = {
 				title: "Services",
 				isMoney: false,
-				link: "See all services",
-				icon: <Store className="icon" style={{ color: "purple", backgroundColor: "rgba(128, 0, 128, 0.2)" }} />,
+				link: (
+					<Link
+						to="/services"
+						style={{ textDecoration: "none", color: "gray" }}
+					>
+						See all services
+					</Link>
+				),
+				icon: (
+					<Store
+						className="icon"
+						style={{
+							color: "purple",
+							backgroundColor: "rgba(128, 0, 128, 0.2)",
+						}}
+					/>
+				),
 			};
 			break;
 		default:
@@ -56,13 +87,13 @@ export const Widgets = ({ type }) => {
 		<div className="widget">
 			<div className="left">
 				<span className="title">{data.title}</span>
-				<span className="counter">1000</span>
+				<span className="counter">{counts}</span>
 				<span className="link">{data.link}</span>
 			</div>
 			<div className="right">
 				<div className="percentage positive">
 					<KeyboardArrowUp />
-					20%
+					{newCounts}
 				</div>
 				{data.icon}
 			</div>

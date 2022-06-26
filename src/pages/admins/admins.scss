@@ -10,7 +10,7 @@
 			margin: 10px;
 			padding: 20px;
 			display: flex;
-      
+
 			h1 {
 				font-size: 20px;
 				font-weight: bold;
@@ -19,14 +19,16 @@
 		}
 
 		.newButton {
-			margin-left: 30%;
+			text-decoration: none;
+			margin-left: 45%;
 			padding: 10px;
 			font-size: 16px;
 			border-radius: 10px;
-			width: 40%;
+			width: 200px !important;
 			color: white;
 			background-color: green;
 			cursor: pointer;
+			text-align: center;
 
 			&:hover {
 				color: rgb(0, 128, 0);

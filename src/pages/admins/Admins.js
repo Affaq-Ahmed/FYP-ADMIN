@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { DataTable } from "../../components/dataTable/DataTable";
 import { Navbar } from "../../components/navbar/Navbar";
 import { Sidebar } from "../../components/sidebar/Sidebar";
@@ -14,7 +15,9 @@ export const Admins = () => {
 					<h1>Admins</h1>
 				</div>
 				<DataTable />
-				<button className="newButton">Add Admin</button>
+				<Link to="/admin/newAdmin" className="newButton">
+					Add Admin
+				</Link>
 			</div>
 		</div>
 	);

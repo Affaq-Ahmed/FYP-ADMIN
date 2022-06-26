@@ -11,51 +11,77 @@ import {
 	LogoutOutlined,
 	Settings,
 	ManageAccountsOutlined,
+	CategoryOutlined,
 } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
 	return (
 		<div className="sidebar">
 			<div className="top">
-				<img className="logo" src={logo} alt="logo" />
+				<Link to="/" style={{ textDecoration: "nones" }}>
+					<img className="logo" src={logo} alt="logo" />
+				</Link>
 			</div>
 			<hr />
 			<div className="bottom">
 				<ul>
 					<p className="title">MAIN</p>
 					<li>
-						<Dashboard className="icon" />
-						<span>Dashboard</span>
+						<Link to="/" style={{ textDecoration: "none" }}>
+							<Dashboard className="icon" />
+							<span>Dashboard</span>
+						</Link>
 					</li>
 					<p className="title">FUNCTIONS</p>
 					<li>
-						<PersonOutline className="icon" />
-						<span>Users</span>
+						<Link to="/users" style={{ textDecoration: "none" }}>
+							<PersonOutline className="icon" />
+							<span>Users</span>
+						</Link>
+					</li>
+					{/* <li>
+						<Link to="/services" style={{ textDecoration: "none" }}>
+							<Store className="icon" />
+							<span>Services</span>
+						</Link>
+					</li> */}
+					<li>
+						<Link to="/categories" style={{ textDecoration: "none" }}>
+							<CategoryOutlined className="icon" />
+							<span>Categories</span>
+						</Link>
 					</li>
 					<li>
-						<Store className="icon" />
-						<span>Services</span>
+						<Link to="/orders" style={{ textDecoration: "none" }}>
+							<ShoppingCartOutlined className="icon" />
+							<span>Orders</span>
+						</Link>
 					</li>
 					<li>
-						<ShoppingCartOutlined className="icon" />
-						<span>Orders</span>
+						<Link to="/chat" style={{ textDecoration: "none" }}>
+							<ChatOutlined className="icon" />
+							<span>Chat</span>
+						</Link>
 					</li>
 					<li>
-						<ChatOutlined className="icon" />
-						<span>Chat</span>
+						<Link to="/admin" style={{ textDecoration: "none" }}>
+							<AdminPanelSettings className="icon" />
+							<span>Admins</span>
+						</Link>
 					</li>
 					<li>
-						<AdminPanelSettings className="icon" />
-						<span>Admins</span>
-					</li>
-					<li>
-						<Settings className="icon" />
-						<span>Settings</span>
+						<Link to="/settings" style={{ textDecoration: "none" }}>
+							<Settings className="icon" />
+							<span>Settings</span>
+						</Link>
 					</li>
 					<p className="title">USER</p>
 					<li>
-						<ManageAccountsOutlined className="icon" />
-						<span>Profile</span>
+						<Link to="/profile" style={{ textDecoration: "none" }}>
+							<ManageAccountsOutlined className="icon" />
+							<span>Profile</span>
+						</Link>
 					</li>
 					<li>
 						<LogoutOutlined className="icon" />

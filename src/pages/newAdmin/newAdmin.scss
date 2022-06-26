@@ -22,7 +22,7 @@
 				flex: 1;
         text-align: center;
         justify-content: center;
-        margin-top: 10%;
+        border-right: 1px solid rgb(230, 227, 227) !important;
 
 				img {
 					width: 200px;
@@ -31,6 +31,7 @@
 					border-radius: 50%;
 					-o-object-fit: cover;
 					object-fit: cover;
+          margin: 20%;
 				}
 			}
 

@@ -8,6 +8,7 @@ import { NewAdmin } from "./pages/newAdmin/NewAdmin";
 import { Single } from "./pages/single/Single";
 import { Users } from "./pages/users/Users";
 import { NewCategory } from "./pages/newCategory/NewCategory";
+import { DisplayUser } from "./pages/displayUser/DisplayUser";
 
 export const App = () => {
 	return (
@@ -25,7 +26,10 @@ export const App = () => {
 				</Route>
 				<Route path="/users">
 					<Route index element={<Users />} />
-					<Route path=":id" element={<Single />} />
+					<Route path=":id">
+						<Route index element={<Single />} />
+						<Route path="displayUser" element={<DisplayUser />} />
+					</Route>
 				</Route>
 			</Routes>
 		</BrowserRouter>
