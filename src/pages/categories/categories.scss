@@ -1,0 +1,37 @@
+.cat {
+	display: flex;
+
+	.catContainer {
+		flex: 6;
+
+		.top {
+			box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+			margin: 10px;
+			padding: 20px;
+			display: flex;
+
+			h1 {
+				font-size: 20px;
+				font-weight: bold;
+				color: lightgray;
+			}
+		}
+		.newButton {
+			text-decoration: none;
+			margin-left: 45%;
+			padding: 10px;
+			font-size: 16px;
+			border-radius: 10px;
+			width: 200px !important;
+			color: white;
+			background-color: green;
+			cursor: pointer;
+			text-align: center;
+
+			&:hover {
+				color: rgb(0, 128, 0);
+				background-color: white;
+			}
+		}
+	}
+}

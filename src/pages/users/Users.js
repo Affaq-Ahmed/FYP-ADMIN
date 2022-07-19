@@ -17,7 +17,7 @@ export const Users = () => {
       console.log(res.data)
 		};
 		fetchData();
-	});
+	},[]);
 	return (
 		<div className="users">
 			<Sidebar />
@@ -26,7 +26,7 @@ export const Users = () => {
 				<div className="top">
 					<h1>Users</h1>
 				</div>
-				<DataTable data={users} />
+				<DataTable data={users} type={"user"}/>
 			</div>
 		</div>
 	);

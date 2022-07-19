@@ -73,6 +73,14 @@ export const DisplayUser = () => {
 							}
 							alt=""
 						/>
+						<img
+							src={
+								user.cnicPhoto
+									? user.cnicPhoto
+									: "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+							}
+							alt=""
+						/>
 					</div>
 					<div className="right">
 						<div className="details">

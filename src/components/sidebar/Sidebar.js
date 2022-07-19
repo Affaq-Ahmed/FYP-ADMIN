@@ -47,7 +47,7 @@ export const Sidebar = () => {
 						</Link>
 					</li> */}
 					<li>
-						<Link to="/categories" style={{ textDecoration: "none" }}>
+						<Link to="/category" style={{ textDecoration: "none" }}>
 							<CategoryOutlined className="icon" />
 							<span>Categories</span>
 						</Link>

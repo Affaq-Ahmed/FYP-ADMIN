@@ -39,19 +39,22 @@ export const NewAdmin = () => {
 				password
 			);
 			console.log(result);
-			return result;
+			handleUpload(result);
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	const handleUpload = () => {
+	const handleUpload = async (result) => {
 		if (!file) {
 			alert("Please choose a file first!");
 		}
+		let uri = file;
+		const response = await fetch(uri);
+		const blob = await response.blob();
 
 		const storageRef = ref(storage, `userDps/${email.current.value}.jpg`);
-		const uploadTask = uploadBytesResumable(storageRef, file);
+		const uploadTask = uploadBytesResumable(storageRef, blob);
 
 		uploadTask.on(
 			"state_changed",
@@ -62,7 +65,7 @@ export const NewAdmin = () => {
 
 				// update progress
 				setPercent(percent);
-        console.log(percent);
+				console.log(percent);
 			},
 			(err) => console.log(err),
 			() => {
@@ -70,32 +73,33 @@ export const NewAdmin = () => {
 				getDownloadURL(uploadTask.snapshot.ref).then((url) => {
 					console.log(url);
 					setImageURL(url);
+					createAdmin(result.user.uid, url);
 				});
 			}
 		);
 	};
 
-	const createAdmin = async () => {
+	const createAdmin = async (id, url) => {
 		const admin = {
+			uid: id,
 			firstName: firstName.current.value,
 			lastName: lastName.current.value,
 			email: email.current.value,
 			username: username.current.value,
-			password: password.current.value,
-			confirmPassword: confirmPassword.current.value,
 			phone: phone.current.value,
 			address: address.current.value,
 			dateOfBirth: dateOfBirth.current.value,
 			CNIC: CNIC.current.value,
-			imageURL: imageURL,
+			image: url,
 		};
-		console.log(admin);
+
 		try {
 			const result = await axios.post(
-				"https://tap-n-hire.herokuapp.com/api/admin/",
+				"https://tap-n-hire.herokuapp.com/api/admin",
 				admin
 			);
 			console.log(result);
+			navigate(-1);
 		} catch (err) {
 			console.log(err.message);
 		}
@@ -105,9 +109,6 @@ export const NewAdmin = () => {
 		e.preventDefault();
 		const result = signUp(email.current.value, password.current.value);
 		console.log(result);
-		handleUpload();
-		createAdmin();
-		navigate(-1);
 	};
 
 	return (
